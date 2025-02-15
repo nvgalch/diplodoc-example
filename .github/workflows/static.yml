@@ -23,7 +23,26 @@ concurrency:
 
 jobs:
   # Single deploy job since we're just deploying
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Build
+        uses: diplodoc-platform/docs-build-action@v2
+        with:
+          project-name: "diplodocc"
+          revision: "${{ github.sha }}"
+          src-root: "./docs"
+          storage-endpoint: ${{ vars.DIPLODOC_STORAGE_ENDPOINT }}
+          storage-region: ${{ vars.DIPLODOC_STORAGE_REGION }}
+          storage-bucket: ${{ vars.DIPLODOC_STORAGE_BUCKET }}
+          storage-access-key-id: ${{ secrets.DIPLODOC_ACCESS_KEY_ID }}
+          storage-secret-access-key: ${{ secrets.DIPLODOC_SECRET_ACCESS_KEY }}
+
   deploy:
+    needs: build
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
