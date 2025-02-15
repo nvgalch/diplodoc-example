@@ -26,7 +26,7 @@ class Server {
       port = 8000,
 
       serveIndexes = ['index.html'],
-      serveDir = 'docs-html',
+      serveDir = 'docs-html/**/*',
       cacheControl = false,
 
       ssePath = '/events',
