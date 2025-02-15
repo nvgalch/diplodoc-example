@@ -107,8 +107,9 @@ events.addEventListener("${this.configs.sseEventName}", function(e) {
   // build documentation
   buildDocumentation() {
     console.info('building documentation');
-
-    execSync('npm run build:docs');
+    const { execSync } = require('child_process');
+    execSync('npm run build:docs-ext');
+    execSync('npm run build:docs-int');
   }
 
   injectSSE() {

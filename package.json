@@ -31,8 +31,10 @@
   "license": "MIT",
   "main": "scripts/serve.js",
   "scripts": {
-    "start": "npm run build:docs && node scripts/serve.js",
-    "build:docs": "yfm --input docs --output docs-html"
+    "start-ext": "npm run build:docs-ext && node scripts/serve.js",
+    "build:docs-ext": "yfm --input docs/ru --output docs-html --allowHTML",
+    "start-int": "npm run build:docs-int && node scripts/serve.js",
+    "build:docs-int": "yfm --input docs/ru --output docs-html --allowHTML --varsPreset \"internal\""
   },
   "dependencies": {
     "@doc-tools/docs": "^3.23.0",
