@@ -1,19 +1,13 @@
-title: Yandex Forms
+title: Документация
 href: index.yaml
 items:
 - name: Начало работы
   items:
-    - name: "{{ go-to-forms }}"
-      href: go-to-forms.md
-    - name: Создать первую форму
-      href: quick-guide.md
-    - name: Подключить {{ forms-full-name }} для бизнеса
-      href: enable-forms.md
-      when: audience == "external"
-- name: Концепции
+    - name: Показательная страница
+      href: demo.md
+- name: "{{ name }}"
+  when: audience == "internal"
+  href: int.md
+- name: "{{ name }}"
   when: audience == "external"
-  items:
-    - name: Личные формы
-      href: personal-forms.md
-    - name: Формы для бизнеса
-      href: forms-for-org.md
+  href: ext.md
