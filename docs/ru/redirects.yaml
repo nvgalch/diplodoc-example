@@ -1,2 +1,2 @@
-- from: page1.md
-  to: page2.md
+- from: /page1.md
+  to: /page2.md
