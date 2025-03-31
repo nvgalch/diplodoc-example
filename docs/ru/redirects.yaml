@@ -1,3 +1,2 @@
-external:
-  from: page1.md
+- from: page1.md
   to: page2.md
