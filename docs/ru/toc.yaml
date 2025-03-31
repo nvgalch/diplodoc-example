@@ -11,3 +11,5 @@ items:
 - name: "{{ name }}"
   when: audience == "external"
   href: ext.md
+- name: Страница, куда произойдет редирект
+  href: page2.md
