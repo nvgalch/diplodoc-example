@@ -1,0 +1,1 @@
+window.__DATA__.data.toc = {"title":"Документация","href":"index.html","items":[{"name":"Начало работы","items":[{"name":"Показательная страница","href":"demo.html","id":"1684aa6b-112f-44c8-9c81-22b9701b072c"}],"id":"de0bb983-2fa5-4d7d-808a-2e259d885c06"}],"id":"ee20ab3d-f426-429f-9f3d-f58c627ff06c"};
