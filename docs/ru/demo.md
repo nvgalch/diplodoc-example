@@ -2,6 +2,16 @@
 
 [Документация Diplodoc](https://diplodoc.com/docs/ru/index-yfm)
 
+{% if mode == "internal" %}
+
+кусок виден сотрудникам
+
+{% else %}
+
+кусок виден всем
+
+{% endif %}
+
 ## Табы
 
 ### Сейчас так
@@ -77,7 +87,6 @@
 Кричащие красные
 
 {% endnote %}
-
 
 ## Каты
 
