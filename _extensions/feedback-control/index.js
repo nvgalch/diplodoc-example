@@ -49,7 +49,7 @@ class Extension {
         try {
           await run.copy(
             extensionFilePath,
-            join(run.output, '_extensions', 'feedback-control-extension.js'),
+            join(run.output, 'ru', '_extensions', 'feedback-control-extension.js'),
           );
         } catch (error) {
           run.logger.warn(

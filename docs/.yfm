@@ -13,8 +13,8 @@ search:
 allow-custom-resources: true
 
 extensions:
-    - '../_extensions/feedback-control'
-    - '../_extensions/breadcrumbs'
+    - './_extensions/feedback-control'
+    - './_extensions/breadcrumbs'
 
 feedbackControl: true
 breadcrumbs: true
