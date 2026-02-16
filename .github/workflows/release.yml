@@ -23,7 +23,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Build
-        uses: diplodoc-platform/docs-build-action@v2
+        uses: diplodoc-platform/docs-build-action@v3
         with:
           project-name: "diplodoc"
           revision: "${{ github.sha }}"
@@ -38,7 +38,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Release
-        uses: diplodoc-platform/docs-release-action@v2
+        uses: diplodoc-platform/docs-release-action@v3
         with:
           revision: "${{ github.sha }}"
           storage-bucket: ${{ vars.DIPLODOC_STORAGE_BUCKET }}
