@@ -1,0 +1,19 @@
+external:
+# По дефолту
+
+internal:
+
+  mode: internal
+
+  site-url: https://docs.vk-team.ru
+  name: Страница для внутренних пользователей
+  api-version: 5.255
+
+default:
+
+  locale: ru
+  mode: external
+
+  site-url: https://docs.vk.ru
+  name: Страница для внешних пользователей
+  api-version: 5.199
