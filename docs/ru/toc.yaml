@@ -1,3 +1,12 @@
+navigation:
+  header:
+    leftItems:
+      - text: "Приложения"
+        type: "link"
+        url: "https://dev.vk.com/ru/admin/apps-list"
+      - text: "API"
+        type: "link"
+        url: "https://dev.vk.com/ru/reference"
 title: Документация
 href: index.yaml
 items:
@@ -11,6 +20,8 @@ items:
 - name: "{{ name }}"
   when: audience == "external"
   href: ext.md
+
+
 # не работает
 #- name: Страница, куда произойдет редирект
 #  href: page2.md
