@@ -9,13 +9,13 @@ meta:
 links:
 - title: "Демо-страница"
   description: "Страница, чтобы показать, что умеет диплодок"
-  href: "demo"
+  href: "demo.md"
 - title: "Страница для внешних пользователей"
   description: "Собирается только на внешний домен"
-  href: "ext"
+  href: "ext.md"
   when: audience == "external"
 - title: "Страница для внутренних пользователей"
   description: "Собирается только на внутренний домен"
-  href: "int"
+  href: "int.md"
   when: audience == "internal"
 
