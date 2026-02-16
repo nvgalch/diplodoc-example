@@ -32,11 +32,8 @@ jobs:
       - name: Install diplodoc
         run: npm i -g @diplodoc/cli
 
-      - name: Build ru
-        run: yfm -i ./docs/ru -o ./docs-html/ru
-
-      - name: Build en
-        run: yfm -i ./docs/en -o ./docs-html/en
+      - name: Build
+        run: yfm -i ./docs -o ./docs-html
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -51,7 +48,7 @@ jobs:
     needs: build
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: ${{ steps.deployment.outputs.page_url }}/ru
     runs-on: ubuntu-latest
     steps:
       - name: Deploy to GitHub Pages
