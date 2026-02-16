@@ -15,20 +15,23 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  deploy:
+  build:
+    name: Build diplodoc
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      - name: Build docs
-        uses: diplodoc-platform/docs-build-action@v3
+      - name: Install node.js
+        uses: actions/setup-node@v4
         with:
-          src-root: './docs'
-          build-root: './docs-html'
+          node-version: 20
+
+      - name: Install diplodoc
+        run: npm i -g @diplodoc/cli
+
+      - name: Build
+        run: yfm -i ./docs -o ./dist
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -36,8 +39,16 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './docs-html'   # важно: грузим результат сборки, а не "."
+          path: ./dist
 
+  deploy:
+    name: Publish to GH Pages
+    needs: build
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
