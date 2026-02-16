@@ -32,11 +32,11 @@ jobs:
       - name: Install diplodoc
         run: npm i -g @diplodoc/cli
 
-      - name: Build
-        run: yfm -i ./docs -o ./docs-html
-      
-      - name: Make root index.html
-        run: cp ./docs-html/ru ./docs-html
+      - name: Build ru
+        run: yfm -i ./docs/ru -o ./docs-html/ru
+
+      - name: Build en
+        run: yfm -i ./docs/en -o ./docs-html/en
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
