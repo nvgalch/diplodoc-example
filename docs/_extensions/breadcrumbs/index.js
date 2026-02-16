@@ -91,7 +91,7 @@ function createBreadcrumbsMap(toc, options) {
     const breadcrumbItem = { name: item.name };
 
     if (item.href) {
-      breadcrumbItem.url = setExt(item.href, "");
+      breadcrumbItem.url = normalizeHrefToDocPath(item.href);
     }
 
     if (breadcrumbItem.url) {
@@ -113,4 +113,16 @@ function createBreadcrumbsMap(toc, options) {
 
   toc.items.forEach((item) => processItem(item, initialBreadcrumbItems));
   return breadcrumbsMap;
+}
+function normalizeHrefToDocPath(href) {
+  // отрезаем query/hash
+  const m = href.match(/^([^?#]*)(\?[^#]*)?(#.*)?$/);
+  const base = m?.[1] ?? href;
+  const query = m?.[2] ?? "";
+  const hash = m?.[3] ?? "";
+
+  // убираем расширения исходников и "служебных" yaml
+  const cleaned = base.replace(/\.(ya?ml|md|html)$/i, "");
+
+  return `${cleaned}${query}${hash}`;
 }
