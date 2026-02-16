@@ -1,9 +1,37 @@
-# Корневая секция параметров
+allowHTML: true
+strict: true
+breaks: false
+langs: ['ru', 'en']                   # Языки, участвующие в сборке
 apply-presets: true
 varsPreset: 'external'
-langs: ['en', 'ru']
+        # Применять ли пресеты переменных
+search:
+  provider: local
+  tolerance: 0
+  confidense: phrased
 
-# Настройки интерфейса документации
-interface:
-#  favicon-src: https://sun9-12.userapi.com/10IyBGvYWlewDy1A5IX1iW4H_D_U0dlNu_m8og/o2fM3chsZy4.png
-  feedback: true
+allow-custom-resources: true
+
+extensions:
+    - '../_extensions/feedback-control'
+    - '../_extensions/breadcrumbs'
+
+feedbackControl: true
+breadcrumbs: true
+
+# Параметры отображения в интерфейсе
+#docs-viewer:
+#  metrika: [51446871, 94781227] # Счётчик метрики
+#  project-name: zen-help        # Будет использоваться для формирования url-а проекта на сайте
+#  is-external: true             # Проект будет доступен внешним пользователям
+#  langs: ['ru']                 # Языки, участвующие в сборке
+#  favicon-src: https://s3.dzeninfra.ru/zen/icons/logo/fav512.svg
+#  logo-options:
+#    url: https://dzen.ru/help/ru/
+#    src: https://s3.dzeninfra.ru/zen/icons/logo/dzen_logo_32.svg
+#    src-dark: https://s3.dzeninfra.ru/zen/icons/logo/dzen_logo_icon_w_32.svg
+#    img-has:
+      # Используется если логотип имеет расширение svg и в svg не задана ширина
+#      height: 32px  
+      # Используется если логотип не имеет отступов слева и справа, эта настройка задает дефолтный отступ по бокам
+#      offset: true
