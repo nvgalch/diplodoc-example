@@ -1,1 +1,0 @@
-window.__DATA__.data.toc = {"title":"Документация","href":"index.html","items":[{"name":"Начало работы","items":[{"name":"Показательная страница","href":"demo.html","id":"a48450f6-30bb-429f-a972-2a0791eac95f"}],"id":"9e746833-7242-4b5a-aa40-870136c22afe"}],"path":"toc.yaml","id":"7034b07d-ee90-4486-82fe-c40a9d739ab2"};
