@@ -25,7 +25,7 @@ jobs:
       - name: Build
         uses: diplodoc-platform/docs-build-action@v2
         with:
-          project-name: "diplodocc"
+          project-name: "diplodoc"
           revision: "${{ github.sha }}"
           src-root: "./docs"
           storage-endpoint: ${{ vars.DIPLODOC_STORAGE_ENDPOINT }}
