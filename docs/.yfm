@@ -1,10 +1,10 @@
 allowHTML: true
 strict: true
 breaks: false
-langs: ['ru', 'en']                   # Языки, участвующие в сборке
+langs: ['ru']
 apply-presets: true
 varsPreset: 'external'
-        # Применять ли пресеты переменных
+
 search:
   provider: local
   tolerance: 0
@@ -13,13 +13,14 @@ search:
 allow-custom-resources: true
 
 extensions:
-  - './_extensions/feedback-control'
+#  - './_extensions/feedback-control'
   - './_extensions/breadcrumbs'
 
-feedbackControl:
-  endpoint: https://formspree.io/f/mnjbvjgq
+#feedbackControl:
+#  endpoint: https://formspree.io/f/mnjbvjgq
 
-breadcrumbs: true
+breadcrumbs:
+  tocAsRoot: true
 
 # Параметры отображения в интерфейсе
 #docs-viewer:
