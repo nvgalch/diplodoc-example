@@ -1,0 +1,12 @@
+# Корневая секция параметров
+strict: true
+breaks: false
+apply-presets: true
+varsPreset: 'external'
+needToSanitizeHtml: true
+langs: ['en', 'ru']
+
+# Настройки интерфейса документации
+interface:
+  favicon-src: https://sun9-12.userapi.com/10IyBGvYWlewDy1A5IX1iW4H_D_U0dlNu_m8og/o2fM3chsZy4.png
+  feedback: true
