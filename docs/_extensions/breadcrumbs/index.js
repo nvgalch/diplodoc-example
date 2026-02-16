@@ -13,7 +13,7 @@ class Extension {
       .tap("Breadcrumbs", (run) => {
         if (!program.config.breadcrumbs) return;
 
-        // Нормализация и валидация конфига (вместо getHooks(program).Config.tap)
+        // Нормализация и валидация конфига
         const raw = program.config.breadcrumbs;
         ok(raw === true || typeof raw === "object", "breadcrumbs must be object or true");
 
@@ -25,7 +25,6 @@ class Extension {
         ok(typeof options.tocAsRoot === "boolean", "breadcrumbs.tocAsRoot must be boolean type");
         ok(typeof options.appendLabeled === "boolean", "breadcrumbs.appendLabeled must be boolean type");
 
-        // чтобы дальше в коде всегда был объект
         program.config.breadcrumbs = options;
 
         const tocService = run.toc;
@@ -37,17 +36,29 @@ class Extension {
 
           const breadcrumbsMap = getBreadcrumbsMap(toc, options, breadcrumbCacheMap);
 
-          // NB: в исходнике было join(pathname, base) — это странно, но оставляю логику максимально близкой
+          // максимально близко к исходнику
           const rootPath = path.join(state.router.pathname, state.router.base);
           const pathname = state.router.pathname.replace(rootPath, "");
 
           if (!breadcrumbsMap.has(pathname)) return state;
 
-          state.data.breadcrumbs = breadcrumbsMap.get(pathname).map((item) =>
-            item.url && !isExternalHref(item.url)
-              ? { ...item, url: path.join(rootPath, item.url) + ".html" }
-              : item,
-          );
+          state.data.breadcrumbs = breadcrumbsMap.get(pathname).map((item) => {
+            if (!item.url || isExternalHref(item.url)) {
+              return item;
+            }
+
+            // Сценарий 2: чистим расширения прямо перед добавлением .html
+            const joined = path.join(rootPath, item.url);
+
+            // 1) убираем .yaml/.yml/.md если они вдруг просочились
+            // 2) убираем .html если он уже есть
+            // 3) добавляем ровно один .html
+            const cleaned = joined
+              .replace(/\.(ya?ml|md)(?=\.html$|$)/gi, "")
+              .replace(/\.html$/i, "");
+
+            return { ...item, url: cleaned + ".html" };
+          });
 
           return state;
         });
@@ -56,16 +67,13 @@ class Extension {
 }
 exports.Extension = Extension;
 
-// ---- helpers (замена @diplodoc/cli/lib/utils) ----
+// ---- helpers ----
 
 function isExternalHref(href) {
-  // внешние: http(s), mailto, tel, protocol-relative, data, etc.
   return /^[a-zA-Z][a-zA-Z\d+\-.]*:/.test(href) || href.startsWith("//");
 }
 
 function setExt(href, ext) {
-  // ext = "" в твоём коде означает "убрать расширение"
-  // сохраняем query/hash
   const m = href.match(/^([^?#]*)(\?[^#]*)?(#.*)?$/);
   const base = m?.[1] ?? href;
   const query = m?.[2] ?? "";
@@ -91,7 +99,9 @@ function createBreadcrumbsMap(toc, options) {
     const breadcrumbItem = { name: item.name };
 
     if (item.href) {
-      breadcrumbItem.url = normalizeHrefToDocPath(item.href);
+      // оставляем как было: здесь может получиться "index.yaml",
+      // но на этапе формирования конечного URL мы это вычистим (сценарий 2)
+      breadcrumbItem.url = setExt(item.href, "");
     }
 
     if (breadcrumbItem.url) {
@@ -113,16 +123,4 @@ function createBreadcrumbsMap(toc, options) {
 
   toc.items.forEach((item) => processItem(item, initialBreadcrumbItems));
   return breadcrumbsMap;
-}
-function normalizeHrefToDocPath(href) {
-  // отрезаем query/hash
-  const m = href.match(/^([^?#]*)(\?[^#]*)?(#.*)?$/);
-  const base = m?.[1] ?? href;
-  const query = m?.[2] ?? "";
-  const hash = m?.[3] ?? "";
-
-  // убираем расширения исходников и "служебных" yaml
-  const cleaned = base.replace(/\.(ya?ml|md|html)$/i, "");
-
-  return `${cleaned}${query}${hash}`;
 }
