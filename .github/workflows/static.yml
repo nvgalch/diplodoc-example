@@ -36,7 +36,7 @@ jobs:
         run: yfm -i ./docs -o ./docs-html
       
       - name: Make root index.html
-        run: cp ./docs-html/ru/index.html ./docs-html/index.html
+        run: cp ./docs-html/ru ./docs-html
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
