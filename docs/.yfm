@@ -14,12 +14,12 @@ search:
 
 #allow-custom-resources: true
 
-#extensions:
-#  - './_extensions/breadcrumbs'
+extensions:
+  - './_extensions/breadcrumbs'
 #  - './_extensions/feedback-form'
 
-#breadcrumbs:
-#  tocAsRoot: true
+breadcrumbs:
+  tocAsRoot: true
 
 #feedbackForm:
 #  endpoint: https://formspree.io/f/mnjbvjgq
