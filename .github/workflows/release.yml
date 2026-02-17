@@ -1,4 +1,4 @@
-name: Diplodoc Release
+name: Diplodoc Release ## как это работает - непонятно
 
 on:
   workflow_dispatch:

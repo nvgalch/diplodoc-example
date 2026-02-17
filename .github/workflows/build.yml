@@ -1,4 +1,4 @@
-name: Diplodoc PR preview
+name: Diplodoc PR preview ## как это работает - непонятно
 
 on:
   pull_request:
