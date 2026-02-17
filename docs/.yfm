@@ -16,9 +16,14 @@ search:
 
 extensions:
   - './_extensions/breadcrumbs'
+  - './_extensions/feedback-form'
 
 breadcrumbs:
   tocAsRoot: true
+
+feedbackForm:
+  endpoint: https://formspree.io/f/mnjbvjgq
+  position: content-bottom
 
 docs-viewer:
   themes: ['light']
