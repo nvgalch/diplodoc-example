@@ -2,6 +2,10 @@ name: Deploy static content to Pages
 
 on:
   workflow_dispatch:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
 
 permissions:
   contents: read
@@ -31,11 +35,6 @@ jobs:
       - name: Build
         run: yfm -i ./docs -o ./docs-html
 
-      - name: Debug feedback files
-        run: |
-          ls -la docs-html/ru/_extensions || true
-          find docs-html -maxdepth 4 -type f -name "feedback-control-extension.js" -print
-      
       - name: Setup Pages
         uses: actions/configure-pages@v5
 

@@ -31,8 +31,7 @@ class Extension {
         const breadcrumbCacheMap = new Map();
 
         getEntryHooks(run.entry).State.tap("Breadcrumbs", (state) => {
-          const lang = state.router.pathname.split("/")[0]; // ru|en
-          const toc = tocService.for(`${lang}/toc`);
+          const toc = tocService.for(state.router.pathname);
           if (!toc.items || toc.items.length === 0) return state;
 
           const breadcrumbsMap = getBreadcrumbsMap(toc, options, breadcrumbCacheMap);
