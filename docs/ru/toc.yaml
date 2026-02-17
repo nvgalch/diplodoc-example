@@ -1,10 +1,4 @@
 navigation:
-  logo:
-    url: 'https://dev.vk.com/ru'
-    dark:
-      icon: 'https://sun9-43.userapi.com/4QTYp3c4R0qqzRlIh04KAbWs2D6sKc7AMWB7zQ/ooY9UC7qfn8.svg'
-    light:
-      icon: 'https://sun9-43.userapi.com/4QTYp3c4R0qqzRlIh04KAbWs2D6sKc7AMWB7zQ/ooY9UC7qfn8.svg'
   header:
     leftItems:
       - text: "API"
