@@ -14,16 +14,16 @@ search:
 
 #allow-custom-resources: true
 
-extensions:
-  - './_extensions/breadcrumbs'
-  - './_extensions/feedback-form'
+#extensions:
+#  - './_extensions/breadcrumbs'
+#  - './_extensions/feedback-form'
 
-breadcrumbs:
-  tocAsRoot: false
+#breadcrumbs:
+#  tocAsRoot: true
 
-feedbackForm:
-  endpoint: https://formspree.io/f/mnjbvjgq
-  position: content-bottom
+#feedbackForm:
+#  endpoint: https://formspree.io/f/mnjbvjgq
+#  position: content-bottom
 
 docs-viewer:
   themes: ['light']
