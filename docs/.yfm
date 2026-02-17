@@ -5,36 +5,21 @@ langs: ['ru']
 apply-presets: true
 varsPreset: 'external'
 
+interface:
+  favicon-src: 'https://sun9-29.userapi.com/s/v1/ig2/it3V7x4m3R2aHUpV8GeEe5wY9tWtKOc_wPVvKcJlxB7rMMz6fJmTd-cu7HqI7I_ttn6Nge8hu39TMIEDZlzdS6X-.jpg?quality=95&as=32x4,48x5,72x8,108x12,160x18,240x27,360x41,478x54&from=bu&cs=478x0'
+  feedback: true
+
 search:
   provider: local
   tolerance: 0
   confidense: phrased
 
-allow-custom-resources: true
+#allow-custom-resources: true
 
 extensions:
-#  - './_extensions/feedback-control'
   - './_extensions/breadcrumbs'
-
-#feedbackControl:
-#  endpoint: https://formspree.io/f/mnjbvjgq
 
 breadcrumbs:
   tocAsRoot: true
 
-# Параметры отображения в интерфейсе
 #docs-viewer:
-#  metrika: [51446871, 94781227] # Счётчик метрики
-#  project-name: zen-help        # Будет использоваться для формирования url-а проекта на сайте
-#  is-external: true             # Проект будет доступен внешним пользователям
-#  langs: ['ru']                 # Языки, участвующие в сборке
-#  favicon-src: https://s3.dzeninfra.ru/zen/icons/logo/fav512.svg
-#  logo-options:
-#    url: https://dzen.ru/help/ru/
-#    src: https://s3.dzeninfra.ru/zen/icons/logo/dzen_logo_32.svg
-#    src-dark: https://s3.dzeninfra.ru/zen/icons/logo/dzen_logo_icon_w_32.svg
-#    img-has:
-      # Используется если логотип имеет расширение svg и в svg не задана ширина
-#      height: 32px  
-      # Используется если логотип не имеет отступов слева и справа, эта настройка задает дефолтный отступ по бокам
-#      offset: true
