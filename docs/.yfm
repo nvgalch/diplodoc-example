@@ -19,7 +19,7 @@ extensions:
   - './_extensions/feedback-form'
 
 breadcrumbs:
-  tocAsRoot: true
+  tocAsRoot: false
 
 feedbackForm:
   endpoint: https://formspree.io/f/mnjbvjgq
