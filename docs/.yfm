@@ -1,6 +1,6 @@
 allowHTML: true
 strict: true
-langs: ['ru', 'en']
+langs: ['ru']
 apply-presets: true
 varsPreset: 'external'
 
