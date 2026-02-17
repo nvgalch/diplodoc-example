@@ -3,7 +3,7 @@ external:
 
 internal:
 
-  mode: internal
+  audience: internal
 
   site-url: https://docs.vk-team.ru
   name: Страница для внутренних пользователей
@@ -12,7 +12,7 @@ internal:
 default:
 
   locale: ru
-  mode: external
+  audience: external
 
   site-url: https://docs.vk.ru
   name: Страница для внешних пользователей
