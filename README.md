@@ -6,7 +6,7 @@
 
 - Установите текстовый редактор, например [VS Code](https://code.visualstudio.com/).
 
-- Установите пакет [Diplodoc CLI](tools/docs/index.md), выполнив в терминале команду `npm i @diplodoc/cli -g`.
+- Установите пакет [Diplodoc CLI](https://diplodoc.com/docs/ru/tools/docs/), выполнив в терминале команду `npm i @diplodoc/cli -g`.
 
 ## Запуск локальной сборки
 
