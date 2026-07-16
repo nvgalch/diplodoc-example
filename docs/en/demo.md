@@ -2,7 +2,7 @@
 
 [Документация Diplodoc](https://diplodoc.com/docs/ru/index-yfm)
 
-{% if mode == "internal" %}
+{% if audience == "internal" %}
 
 кусок виден сотрудникам
 

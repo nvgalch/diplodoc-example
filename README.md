@@ -1,3 +1,10 @@
-запустить сборку русской доки
+запустить сборку доки (по умолчанию — внешняя дока):
+```
+yfm -i ./ yfm -o docs-html
+```
 
-yfm -i docs/ru yfm -o docs-html
+запустить сборку внутренней доки
+
+```
+yfm -i ./ yfm -o docs-html --vars-preset "internal"
+```
